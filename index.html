@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>물마루 MULMARU · 제주 탑동 카페</title>
+  <meta name="description" content="제주 탑동 바다 앞, 제주더큰내일센터 1층. 제주에서만 마실 수 있는 감귤 말차와 해풍 소금 커피. 제주국제공항에서 15분." />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="물마루 MULMARU · 제주 탑동 카페" />
+  <meta property="og:description" content="수평선이 보이는 자리에서, 제주에서만 마실 수 있는 한 잔." />
+
+  <!-- 폰트 -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;600;700;800&family=Noto+Serif+KR:wght@500;700&display=swap" rel="stylesheet" />
+
+  <!-- Leaflet -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+
+  <!-- ================= NAV ================= -->
+  <header class="nav">
+    <div class="wrap nav-inner">
+      <a class="brand" href="#top">물마루<small>MULMARU</small></a>
+      <nav class="nav-links">
+        <a href="#concept">브랜드</a>
+        <a href="#menu">메뉴</a>
+        <a href="#access">오시는 길</a>
+        <a href="#lab">상상 랩</a>
+      </nav>
+      <a class="nav-cta" href="#access">📍 탑동 · 더큰내일센터 1F</a>
+    </div>
+  </header>
+
+  <!-- ================= HERO ================= -->
+  <main id="top">
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div>
+          <p class="eyebrow">Jeju Topdong · Since 2026</p>
+          <h1>수평선이 <em>물마루</em>가<br />되는 자리에서.</h1>
+          <p class="lead">
+            제주 탑동 바다가 정면으로 보이는 제주더큰내일센터 1층.
+            제주에서 자란 재료로만 만드는, 여기서만 마실 수 있는 한 잔을 내립니다.
+          </p>
+
+          <div class="hero-meta">
+            <span class="chip">📍 <b>제주더큰내일센터 1층</b></span>
+            <span class="chip">✈️ 공항에서 <b>차로 15분</b></span>
+            <span class="chip">🌊 탑동 해변 <b>도보 1분</b></span>
+          </div>
+
+          <div class="btn-row">
+            <a class="btn btn-primary" href="#menu">메뉴 보기</a>
+            <a class="btn btn-ghost" href="#access">공항에서 오시는 길</a>
+          </div>
+        </div>
+
+        <!-- 오늘의 일몰 위젯 -->
+        <aside class="sunset-card" aria-label="오늘의 탑동 일몰">
+          <div class="sun-orb" aria-hidden="true"></div>
+          <p class="sunset-label">오늘 탑동의 일몰</p>
+          <p class="sunset-time" id="sunsetTime">--:--</p>
+          <p class="sunset-note" id="sunsetNote">일몰 시각을 계산하고 있습니다…</p>
+          <span class="sunset-badge" id="sunsetBadge">골든아워 아메리카노 –30%</span>
+        </aside>
+      </div>
+    </section>
+
+    <!-- ================= CONCEPT ================= -->
+    <section class="concept" id="concept">
+      <div class="wrap">
+        <p class="eyebrow">Brand</p>
+        <h2 class="sec-title">‘물마루’는 수평선을 뜻하는 순우리말입니다.</h2>
+        <p class="sec-desc">
+          탑동은 제주 시내에서 바다가 가장 가까운 곳입니다.
+          우리는 그 수평선을 커피 한 잔의 기준선으로 삼았습니다.
+          제주에서 나고 자란 것만 쓰고, 제주 밖에서는 팔지 않습니다.
+        </p>
+
+        <div class="concept-grid">
+          <article class="concept-card">
+            <span class="num">01</span>
+            <h3>제주산 100%</h3>
+            <p>감귤·말차·유채꿀·우도 땅콩·구좌 당근까지. 우유를 제외한 모든 재료를 제주 안에서 조달하고, 생산자 이름을 메뉴판에 함께 적습니다.</p>
+          </article>
+          <article class="concept-card">
+            <span class="num">02</span>
+            <h3>바다 시간표</h3>
+            <p>영업시간이 시계가 아니라 일몰에 맞춰 움직입니다. 해가 지는 시각에 따라 마감이 매일 달라지고, 일몰 30분 전은 골든아워로 운영합니다.</p>
+          </article>
+          <article class="concept-card">
+            <span class="num">03</span>
+            <h3>센터의 거실</h3>
+            <p>제주더큰내일센터 1층. 낮에는 교육생과 워케이션 방문자의 작업실, 저녁에는 바다를 보러 온 사람들의 라운지가 됩니다.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= MENU ================= -->
+    <section class="menu" id="menu">
+      <div class="wrap">
+        <p class="eyebrow">Menu</p>
+        <h2 class="sec-title">제주에서만 마실 수 있는 이름들</h2>
+        <p class="sec-desc">
+          이름은 전부 제주의 말과 풍경에서 가져왔습니다.
+          주문할 때 한 번 더 물어보게 되는 이름, 그게 우리가 원한 첫인상입니다.
+        </p>
+
+        <div class="tabs" role="tablist" aria-label="메뉴 분류">
+          <button class="tab" role="tab" data-cat="all" aria-selected="true">전체</button>
+          <button class="tab" role="tab" data-cat="signature" aria-selected="false">시그니처</button>
+          <button class="tab" role="tab" data-cat="tea" aria-selected="false">티 &amp; 에이드</button>
+          <button class="tab" role="tab" data-cat="coffee" aria-selected="false">커피</button>
+          <button class="tab" role="tab" data-cat="dessert" aria-selected="false">디저트</button>
+        </div>
+
+        <div class="menu-grid" id="menuGrid"></div>
+      </div>
+    </section>
+
+    <!-- ================= ACCESS ================= -->
+    <section class="access" id="access">
+      <div class="wrap">
+        <p class="eyebrow">Access</p>
+        <h2 class="sec-title">제주국제공항에서 오시는 길</h2>
+        <p class="sec-desc">
+          공항 도착층에서 나와 북동쪽으로 약 4km. 이동 수단을 고르면 지도에 경로가 그려집니다.
+        </p>
+
+        <div class="access-grid">
+          <div>
+            <div id="map" role="application" aria-label="제주국제공항에서 물마루까지의 경로 지도"></div>
+            <div class="map-legend">
+              <span><i class="dot a"></i> 제주국제공항</span>
+              <span><i class="dot b"></i> 물마루 (제주더큰내일센터 1F)</span>
+              <span>🗺️ 지도 데이터 © OpenStreetMap 기여자</span>
+            </div>
+          </div>
+
+          <div class="route-panel">
+            <h3>물마루 MULMARU</h3>
+            <p class="route-addr">제주특별자치도 제주시 탑동로 55<br />제주더큰내일센터 1층</p>
+
+            <div class="route-list" id="routeList"></div>
+
+            <div class="hours">
+              <dl>
+                <dt>영업시간</dt>
+                <dd>매일 08:00 — 일몰 후 1시간</dd>
+                <dt>브레이크</dt>
+                <dd>15:00 — 15:30 (로스팅)</dd>
+                <dt>휴무</dt>
+                <dd>매월 첫째 화요일</dd>
+                <dt>주차</dt>
+                <dd>탑동 공영주차장 이용 (음료 주문 시 1시간 무료)</dd>
+                <dt>전화</dt>
+                <dd>064-000-0000</dd>
+              </dl>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= LAB ================= -->
+    <section class="lab" id="lab">
+      <div class="wrap">
+        <p class="eyebrow">Imagination Lab</p>
+        <h2 class="sec-title">이 카페가 ‘독특함’으로 살아남는 열 가지 방법</h2>
+        <p class="sec-desc">
+          탑동 상권에서 커피 맛만으로는 기억되지 않습니다.
+          아래는 물마루가 시도해볼 수 있는 차별화 아이디어입니다. 마음에 드는 번호를 골라주시면 그 방향으로 다시 만들어 드리겠습니다.
+        </p>
+
+        <div class="idea-grid">
+          <article class="idea">
+            <div class="idea-top"><span class="idea-no">1</span><h3>일몰 연동 다이내믹 카페</h3></div>
+            <p>매일 계산된 일몰 시각에 맞춰 마감·조명·플레이리스트·할인이 자동으로 바뀝니다. 일몰 30분 전 ‘골든아워’엔 조명을 끄고 촛불만 켭니다. (이 페이지 상단 위젯이 실제 동작 예시입니다.)</p>
+            <p class="why">→ 매일 다른 방문 이유 · SNS에서 저절로 퍼지는 구조</p>
+          </article>
+
+          <article class="idea">
+            <div class="idea-top"><span class="idea-no">2</span><h3>해녀 협업 ‘물때 메뉴’</h3></div>
+            <p>인근 해녀회와 계약해 물질이 있는 날에만 열리는 한정 메뉴를 냅니다. 우뭇가사리 젤리 라떼, 감태 솔티드 초콜릿처럼 바다에서 그날 올라온 재료를 씁니다.</p>
+            <p class="why">→ 지역과 진짜로 연결된 스토리 · 재현 불가능한 차별성</p>
+          </article>
+
+          <article class="idea">
+            <div class="idea-top"><span class="idea-no">3</span><h3>제주어 주문 챌린지</h3></div>
+            <p>메뉴판에 제주 방언 표기를 병기하고, 방언으로 주문하면 500원 할인. 벽면에는 손님이 배워간 제주어 단어가 하루 한 개씩 쌓입니다.</p>
+            <p class="why">→ 관광객에게는 체험, 도민에게는 반가움</p>
+          </article>
+
+          <article class="idea">
+            <div class="idea-top"><span class="idea-no">4</span><h3>오름 싱글오리진 구독</h3></div>
+            <p>원두 라인업 이름을 제주 오름에서 따옵니다(사라봉·다랑쉬·용눈이). 매달 다른 오름 한 봉지를 육지로 보내주는 구독 서비스로 비수기 매출을 만듭니다.</p>
+            <p class="why">→ 계절 편차가 큰 제주 상권의 현금흐름 방어</p>
+          </article>
+
+          <article class="idea">
+            <div class="idea-top"><span class="idea-no">5</span><h3>워케이션 멤버십 라운지</h3></div>
+            <p>더큰내일센터 교육생·입주사 대상 월 정액권. 콘센트 좌석 지정, 화상회의용 방음 부스 2칸, 평일 오전 무제한 리필. 낮 시간대 빈 좌석을 고정 수익으로 바꿉니다.</p>
+            <p class="why">→ 건물 안 수요를 선점하는 가장 확실한 캐시카우</p>
+          </article>
+
+          <article class="idea">
+            <div class="idea-top"><span class="idea-no">6</span><h3>날씨 연동 메뉴판</h3></div>
+            <p>비 오는 날엔 ‘촉촉한 날 메뉴’, 바람 15m/s 넘는 날엔 ‘바람코지 세트’가 자동으로 열립니다. 제주 날씨의 변덕을 단점이 아니라 콘텐츠로 씁니다.</p>
+            <p class="why">→ 궂은 날 매출 하락 방어 · 재방문 동기</p>
+          </article>
+
+          <article class="idea">
+            <div class="idea-top"><span class="idea-no">7</span><h3>탑동 밤바다 무알콜 바</h3></div>
+            <p>19시 이후 카페가 논알콜 바로 전환됩니다. 감귤·한라봉·비트로 만든 목테일과 재즈 LP. 술 없이 밤바다를 즐기려는 사람들을 위한 자리입니다.</p>
+            <p class="why">→ 좌석 회전율 2배 · 저녁 시간대 공백 해소</p>
+          </article>
+
+          <article class="idea">
+            <div class="idea-top"><span class="idea-no">8</span><h3>보증금 컵 &amp; 바다 리워드</h3></div>
+            <p>1,000원 보증금 다회용컵을 기본으로 하고, 탑동 해안 플로깅 인증 사진을 가져오면 음료 한 잔을 드립니다. 수거한 쓰레기 무게를 매장 칠판에 누적 기록합니다.</p>
+            <p class="why">→ 제주 여행자의 죄책감을 해소해주는 브랜드 포지션</p>
+          </article>
+
+          <article class="idea">
+            <div class="idea-top"><span class="idea-no">9</span><h3>1층 갤러리 · 월간 작가</h3></div>
+            <p>벽면 전체를 제주 청년 작가에게 매달 무료로 내어주고, 판매가 되면 수수료 없이 전액 작가에게. 매달 오프닝 파티가 자연스러운 이벤트가 됩니다.</p>
+            <p class="why">→ 인테리어 비용을 콘텐츠로 대체 · 지역 커뮤니티 허브화</p>
+          </article>
+
+          <article class="idea">
+            <div class="idea-top"><span class="idea-no">10</span><h3>무음 좌석 ‘숨비 존’</h3></div>
+            <p>창가 8석은 대화 금지 구역. 해녀가 숨을 고르는 ‘숨비소리’에서 이름을 땄습니다. 노트북 타건 소음까지 제한하고, 대신 파도 소리만 흐릅니다.</p>
+            <p class="why">→ 시끄러운 관광지 카페 사이에서 확실한 틈새</p>
+          </article>
+        </div>
+
+        <p class="lab-note">
+          <b>고르는 방법 —</b> 번호만 알려주시면 됩니다. 예: “2번하고 5번으로 다시 만들어줘.”
+          선택하신 방향에 맞춰 메뉴 구성, 페이지 섹션, 카피, 색감까지 전부 다시 구현해 드립니다.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="footer">
+    <div class="wrap">
+      <div class="footer-grid">
+        <div>
+          <p class="brand-f">물마루 MULMARU</p>
+          <p>제주특별자치도 제주시 탑동로 55<br />제주더큰내일센터 1층</p>
+          <p>매일 08:00 — 일몰 후 1시간</p>
+        </div>
+        <div>
+          <h4>바로가기</h4>
+          <ul>
+            <li><a href="#concept">브랜드 이야기</a></li>
+            <li><a href="#menu">메뉴</a></li>
+            <li><a href="#access">오시는 길</a></li>
+            <li><a href="#lab">상상 랩</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>연락</h4>
+          <ul>
+            <li><a href="tel:064-000-0000">064-000-0000</a></li>
+            <li><a href="mailto:hello@mulmaru.jeju">hello@mulmaru.jeju</a></li>
+            <li>@mulmaru_jeju</li>
+          </ul>
+        </div>
+      </div>
+      <p class="copy">
+        © 2026 MULMARU. 본 페이지는 창업 준비용 시안입니다. 주소·좌표·전화번호·가격은 실제 정보로 교체가 필요합니다.
+        지도 © OpenStreetMap contributors.
+      </p>
+    </div>
+  </footer>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+          integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
